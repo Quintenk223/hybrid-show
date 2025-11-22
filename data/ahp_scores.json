@@ -1,0 +1,51 @@
+{
+  "CHINA_ALPHA": {
+    "supplier_id": "CHINA_ALPHA",
+    "line_and_space": 0.75,
+    "automatic_ops": 0.70,
+    "mark_alignment_correction": 0.80,
+    "process_speed": 0.65,
+    "maintenance_cost": 0.40,
+    "dual_stage": 0.70,
+    "compatible_register": 0.65,
+    "throughput": 0.70,
+    "df_and_sr_in_one": 0.60,
+    "part_durability": 0.75,
+    "warranty": 0.70,
+    "purchasing_costs": 0.30,
+    "notes": "State enterprise with high precision capabilities but higher purchasing costs. Excels in Line and Space (0.75) and Mark Alignment Correction (0.80), critical for manufacturing requirements."
+  },
+  "CHINA_BETA": {
+    "supplier_id": "CHINA_BETA",
+    "line_and_space": 0.55,
+    "automatic_ops": 0.50,
+    "mark_alignment_correction": 0.50,
+    "process_speed": 0.55,
+    "maintenance_cost": 0.65,
+    "dual_stage": 0.50,
+    "compatible_register": 0.55,
+    "throughput": 0.60,
+    "df_and_sr_in_one": 0.50,
+    "part_durability": 0.60,
+    "warranty": 0.55,
+    "purchasing_costs": 0.75,
+    "notes": "Private supplier with lower purchasing costs but moderate technical capability. Lower scores on critical Line and Space (0.55) and Mark Alignment Correction (0.50) indicate yield risk."
+  },
+  "VIETNAM_GAMMA": {
+    "supplier_id": "VIETNAM_GAMMA",
+    "line_and_space": 0.70,
+    "automatic_ops": 0.75,
+    "mark_alignment_correction": 0.70,
+    "process_speed": 0.75,
+    "maintenance_cost": 0.60,
+    "dual_stage": 0.65,
+    "compatible_register": 0.70,
+    "throughput": 0.75,
+    "df_and_sr_in_one": 0.65,
+    "part_durability": 0.70,
+    "warranty": 0.65,
+    "purchasing_costs": 0.70,
+    "notes": "Emerging supplier with strong automation (0.75) and good technical capabilities. Balanced across Manufacturing Requirements (0.545) and Equipment Specifications (0.279), with competitive purchasing costs."
+  }
+}
+

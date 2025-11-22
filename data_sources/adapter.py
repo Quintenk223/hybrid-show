@@ -9,6 +9,7 @@ from .geopolitical_data import GeopoliticalDataSource
 from .supplier_data import SupplierDataSource
 from .logistics_data import LogisticsDataSource
 from .economic_data import EconomicDataSource
+from .ahp_data import AHPDataSource
 from .config import DataSourceConfig
 import logging
 
@@ -27,6 +28,7 @@ class DataAdapter:
         self.supplier = SupplierDataSource(self.config)
         self.logistics = LogisticsDataSource(self.config)
         self.economic = EconomicDataSource(self.config)
+        self.ahp = AHPDataSource(self.config)
     
     def get_country_level_supplier_data(self, country: str, importer_country: str = "USA") -> Dict[str, Any]:
         """
@@ -149,4 +151,8 @@ class DataAdapter:
     def search_suppliers(self, country: str, location: Optional[str] = None) -> list:
         """Search for suppliers by country and location"""
         return self.supplier.search_suppliers(country, location)
+    
+    def get_ahp_scores(self, supplier_id: str):
+        """Get AHP scores for a supplier"""
+        return self.ahp.get_ahp_scores_object(supplier_id)
 
