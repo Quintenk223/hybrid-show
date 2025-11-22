@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCB Sourcing Decision Engine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PCB Sourcing Decision Engine</h1>
+            <p class="subtitle">China → Vietnam Supplier Analysis</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Form -->
+            <section class="input-section">
+                <h2>SKU Parameters</h2>
+                <form id="analysisForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sku">SKU/Component Number *</label>
+                            <input type="text" id="sku" name="sku" required placeholder="e.g., PCB-12345">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantity">Quantity (per PO cycle) *</label>
+                            <input type="number" id="quantity" name="quantity" required min="1" placeholder="1000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price_current">Current Price (China) $/unit *</label>
+                            <input type="number" id="price_current" name="price_current" required step="0.01" min="0" placeholder="10.50">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price_proposed">Proposed Price (Vietnam) $/unit *</label>
+                            <input type="number" id="price_proposed" name="price_proposed" required step="0.01" min="0" placeholder="9.75">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="moq_current">MOQ - Current (China) *</label>
+                            <input type="number" id="moq_current" name="moq_current" required min="1" placeholder="500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="moq_proposed">MOQ - Proposed (Vietnam) *</label>
+                            <input type="number" id="moq_proposed" name="moq_proposed" required min="1" placeholder="300">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lead_time_current">Lead Time - Current (Days) *</label>
+                            <input type="number" id="lead_time_current" name="lead_time_current" required min="1" placeholder="45">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lead_time_proposed">Lead Time - Proposed (Days) *</label>
+                            <input type="number" id="lead_time_proposed" name="lead_time_proposed" required min="1" placeholder="50">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reorder_quantity">Expected Re-ordering Quantity *</label>
+                            <input type="number" id="reorder_quantity" name="reorder_quantity" required step="0.01" min="0" placeholder="1000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sis">Strategic Importance Score (1-10) *</label>
+                            <input type="number" id="sis" name="sis" required min="1" max="10" placeholder="7">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Analyze Decision</button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="recommendation-box" id="recommendationBox">
+                    <h2 id="recommendationTitle"></h2>
+                    <div class="savings-display" id="savingsDisplay"></div>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Financial Analysis -->
+                    <div class="result-card">
+                        <h3>Cash Flow Analysis</h3>
+                        <div class="metric">
+                            <span class="metric-label">NPV Delta:</span>
+                            <span class="metric-value" id="npvDelta"></span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Current Total Cost:</span>
+                            <span class="metric-value" id="currentCost"></span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Proposed Total Cost:</span>
+                            <span class="metric-value" id="proposedCost"></span>
+                        </div>
+                        <div class="cost-breakdown" id="costBreakdown"></div>
+                    </div>
+
+                    <!-- Risk Analysis -->
+                    <div class="result-card">
+                        <h3>Geopolitical Risk Scores</h3>
+                        <div class="risk-comparison">
+                            <div class="risk-item">
+                                <h4>China (Current)</h4>
+                                <div class="risk-score" id="currentRiskScore"></div>
+                                <div class="risk-breakdown" id="currentRiskBreakdown"></div>
+                            </div>
+                            <div class="risk-item">
+                                <h4>Vietnam (Proposed)</h4>
+                                <div class="risk-score" id="proposedRiskScore"></div>
+                                <div class="risk-breakdown" id="proposedRiskBreakdown"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supplier Metrics -->
+                    <div class="result-card">
+                        <h3>Supplier Metrics</h3>
+                        <div id="supplierMetrics"></div>
+                    </div>
+
+                    <!-- Contingency Recommendations -->
+                    <div class="result-card">
+                        <h3>Contingency Planning</h3>
+                        <div id="contingencyRecommendations"></div>
+                    </div>
+
+                    <!-- Legal Questions -->
+                    <div class="result-card">
+                        <h3>Questions for Legal/Engineering/Security Teams</h3>
+                        <div id="legalQuestions"></div>
+                    </div>
+
+                    <!-- Email Generator -->
+                    <div class="result-card">
+                        <h3>Email Generator Prompt</h3>
+                        <div id="emailGenerator"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
+

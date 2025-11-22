@@ -1,0 +1,32 @@
+{
+  "Shanghai / Suzhou (YRD)": {
+    "prefecture_name": "Shanghai / Suzhou (YRD)",
+    "location_type": "Coastal",
+    "region": "Yangtze River Delta",
+    "output_friction_std": 0.085,
+    "labor_friction_std": 0.85,
+    "lfd_score": 0.85,
+    "std_deviation": 0.85,
+    "gdp_correlation_friction": -0.20,
+    "wealth_tier": "High",
+    "productivity_index": 1.15,
+    "data_source": "Academic Research - Resource Misallocation in China",
+    "notes": "Coastal prefecture with lower friction dispersion. Frictions are less dispersed and less correlated with productivity in richer locations. Output friction dispersion is smaller (0.085) than inland regions. Labor friction dispersion (0.85) is substantially lower than inland average (1.18). Lower correlation with GDP indicates lower risk of misallocation failure.",
+    "last_updated": "2024-01-01"
+  },
+  "Inland Prefecture X": {
+    "prefecture_name": "Inland Prefecture X",
+    "location_type": "Inland",
+    "region": "Inland",
+    "output_friction_std": 0.108,
+    "labor_friction_std": 1.18,
+    "lfd_score": 1.18,
+    "std_deviation": 1.18,
+    "gdp_correlation_friction": 0.40,
+    "wealth_tier": "Low",
+    "productivity_index": 0.95,
+    "data_source": "Academic Research - Resource Misallocation in China",
+    "notes": "Inland/poorer prefecture with higher friction dispersion. The dispersion of labor frictions (payroll wedges) is substantially higher (1.18) than output frictions (0.108). This indicates higher input market distortion and wage volatility. Higher correlation with GDP (0.40) indicates higher risk of misallocation failure. Prefectures vary systematically in economic frictions.",
+    "last_updated": "2024-01-01"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "sku_info": {
+    "sku_id": "PCB-API-001",
+    "quantity_po_cycle": 75000,
+    "strategic_importance_score": 7,
+    "importer_country": "USA"
+  },
+  "decision": {
+    "recommendation": "SWITCH TO VIETNAM",
+    "weighted_decision_value": 79807.26562500006,
+    "recommendation_rationale": "Financial savings of $182,466 outweigh the expected loss risk of $102,658, resulting in a net benefit of $79,807.",
+    "net_weighted_savings": 79807.26562500006
+  },
+  "cost_analysis": {
+    "npv_delta": 182465.62500000006,
+    "total_cost_china": 526453.125,
+    "total_cost_vietnam": 343987.49999999994,
+    "cost_breakdown": {
+      "china": {
+        "base_price": 4.25,
+        "adjusted_price_ap": 5.5675,
+        "tfrf_adjustment": 0.31,
+        "base_freight": 0.05,
+        "adjusted_freight_af": 0.06,
+        "fvm_multiplier": 1.2,
+        "tariffs": 1.391875,
+        "total_landed_cost_per_unit": 7.019374999999999,
+        "total_cost_po_cycle": 526453.125
+      },
+      "vietnam": {
+        "base_price": 3.95,
+        "adjusted_price_ap": 4.5424999999999995,
+        "tfrf_adjustment": 0.15,
+        "base_freight": 0.04,
+        "adjusted_freight_af": 0.044000000000000004,
+        "fvm_multiplier": 1.1,
+        "tariffs": 0.0,
+        "total_landed_cost_per_unit": 4.586499999999999,
+        "total_cost_po_cycle": 343987.49999999994
+      }
+    }
+  },
+  "risk_analysis": {
+    "china_risk_score": 78.0,
+    "vietnam_risk_score": 38.0,
+    "risk_delta": 40.0,
+    "china_risk_components": {
+      "gas_penalty": 80.0,
+      "fvm_score": 19.999999999999996,
+      "cmdi_score": 90.0,
+      "ssp_multiplier": 1.2
+    },
+    "vietnam_risk_components": {
+      "gas_penalty": 35.0,
+      "fvm_score": 10.000000000000009,
+      "cmdi_score": 70.0,
+      "ssp_multiplier": 1.0
+    }
+  },
+  "expected_loss_analysis": {
+    "expected_loss": 102658.359375,
+    "calculation_basis": "Based on China total cost of $526,453, risk score of 78.0/100, and historical loss percentage of 25%"
+  },
+  "contingency_warnings": [
+    {
+      "type": "Targeted Sanctions Vulnerability",
+      "severity": "High",
+      "message": "China supplier's Critical Mineral Dependency Index (90%) indicates high vulnerability to supply-side elasticity targeting. Optimal sanctions target goods supplied inelastically\u2014PCBs with high CMDI scores represent prime targets for strategic trade restrictions. This creates significant exposure risk even if individual tariffs remain unchanged."
+    },
+    {
+      "type": "Strategic Shielding Risk",
+      "severity": "High",
+      "message": "State-Subsidiary status increases the likelihood that targeted sanctions will trigger government 'shielding' mechanisms. This shifts cost burden from the firm to the target government, potentially distorting supply chain stability and creating unpredictable regulatory disruptions."
+    }
+  ],
+  "strategic_scenarios": [
+    {
+      "scenario": "Deterrence Scenario",
+      "probability": "Moderate-High",
+      "description": "Geopolitical rivalry between global powers leads to pro-competition effects on trade infrastructure. Vietnam benefits from increased capacity, improved port facilities, and competitive pricing as alternative suppliers receive infrastructure investment. Expected outcome: Higher capacity, lower prices (15-20% additional savings potential), improved logistics reliability.",
+      "impact": "Positive"
+    },
+    {
+      "scenario": "Accommodation Scenario",
+      "probability": "Moderate",
+      "description": "Dual-power accommodation results in duopoly structures with managed competition. Vietnam capacity increases, but pricing remains more stable as global powers coordinate trade flows. Expected outcome: Increased capacity availability, moderate price improvements (5-10%), stable logistics environment.",
+      "impact": "Neutral-Positive"
+    }
+  ],
+  "legal_security_questions": [
+    {
+      "category": "Legal/Regulatory",
+      "question": "Given the China supplier's State-Subsidiary status (SSP), what is our legal exposure and potential taxpayer burden if the supplier is subjected to targeted sanctions? How does shielding risk affect our contractual obligations and force majeure clauses?"
+    },
+    {
+      "category": "Supply Chain Security",
+      "question": "With a Critical Mineral Dependency Index of 90%, what are our contingency options for component substitution or alternative sourcing to reduce dependency on geopolitically sensitive materials? What is the timeline and cost for qualifying alternative suppliers?"
+    },
+    {
+      "category": "Strategic Planning",
+      "question": "For SKU PCB-API-001 with Strategic Importance Score 7/10, what is our acceptable risk threshold for supply disruption? Do we have adequate backup inventory strategies and alternative supplier relationships to mitigate geopolitical shocks?"
+    }
+  ]
+}

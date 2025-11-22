@@ -1,0 +1,23 @@
+{
+  "China": {
+    "supply_concentration": 0.90,
+    "gas_score": 0.20,
+    "tfrf_penalty": 0.31,
+    "key_minerals": ["REEs", "Lithium", "Cobalt"],
+    "market_share_rare_earth": 0.847,
+    "market_share_graphite": 0.75,
+    "market_share_lithium": 0.60,
+    "dependency_risk": "Very High",
+    "notes": "China dominates the global REE export market (84.7%). Critical minerals are the cornerstone of 4IR sectors. One standard deviation increase in MATR is associated with a 31% reduction in international trade. Low geopolitical alignment (GAS=0.20) reflects low political alignment with Western importer. A 10% rise in voting similarity increases trade flows by approximately 0.762%."
+  },
+  "Vietnam": {
+    "supply_concentration": 0.50,
+    "gas_score": 0.60,
+    "tfrf_penalty": 0.15,
+    "key_minerals": ["REEs", "Copper"],
+    "market_share_rare_earth": 0.15,
+    "market_share_copper": 0.12,
+    "dependency_risk": "Moderate",
+    "notes": "Emerging supplier with moderate critical mineral dependency. Higher geopolitical alignment (GAS=0.60) with Western importer. Lower trade fragmentation risk (TFRF=0.15) due to alignment with Western bloc. Minerals essential for high-technology products (PCBs) and subject to strategic competition."
+  }
+}

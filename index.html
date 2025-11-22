@@ -3,881 +3,891 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hytraq - Hybrid GPS + NFC tracking solutions enabling green competitive advantage and ESG goals. Sustainable, rechargeable tracking for supply chain traceability and decarbonization.">
-    <title>Hytraq – Hybrid Tracking | GPS + NFC Technology</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>PCB Sourcing Decision Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .input-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-section h2 {
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .form-group input {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .results-section {
+            margin-top: 20px;
+        }
+
+        .recommendation-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .recommendation-box.switch {
+            border-left: 5px solid #10b981;
+        }
+
+        .recommendation-box.stay {
+            border-left: 5px solid #ef4444;
+        }
+
+        .recommendation-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .switch h2 {
+            color: #10b981;
+        }
+
+        .stay h2 {
+            color: #ef4444;
+        }
+
+        .savings-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #10b981;
+            margin-top: 10px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-card h3 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .positive {
+            color: #10b981;
+        }
+
+        .negative {
+            color: #ef4444;
+        }
+
+        .cost-breakdown {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .cost-breakdown h4 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .risk-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .risk-item {
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 5px;
+        }
+
+        .risk-item h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .risk-score {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .risk-score.low {
+            color: #10b981;
+        }
+
+        .risk-score.medium {
+            color: #f59e0b;
+        }
+
+        .risk-score.high {
+            color: #ef4444;
+        }
+
+        .risk-breakdown {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .risk-component {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .contingency-item, .question-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            background: #f9fafb;
+        }
+
+        .contingency-item h4, .question-item h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .contingency-item .priority {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .priority.high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .priority.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .priority.low {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .question-item .category {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e0e7ff;
+            color: #3730a3;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .supplier-metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .supplier-metric-group {
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 5px;
+        }
+
+        .supplier-metric-group h4 {
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        .supplier-metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>PCB Sourcing Decision Engine</h1>
+            <p class="subtitle">China → Vietnam Supplier Analysis</p>
+        </header>
 
-<header>
-    <div class="logo"><strong>HYTRAQ</strong></div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#esg-benefits">ESG Benefits</a>
-        <a href="#difference">The Difference</a>
-        <a href="#usecases">Use Cases</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#demo" class="cta">Demo</a>
-    </nav>
-</header>
+        <div class="main-content">
+            <!-- Input Form -->
+            <section class="input-section">
+                <h2>SKU Parameters</h2>
+                <form id="analysisForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sku">SKU/Component Number *</label>
+                            <input type="text" id="sku" name="sku" required placeholder="e.g., PCB-12345">
+                        </div>
 
-<!-- ============================
-HOME PAGE / HERO
-=============================== -->
-<section id="home" class="hero">
-    <div>
-        <h1>Hytraq — Click & Connect: Closing the visibility gap between indoor and outdoor tracking with hybrid GPS + NFC technology.</h1>
-        <p class="tbl-subtitle">Enabling Green Competitive Advantage and Traceability for a more Sustainable Supply Chain.</p>
-        <p class="value-prop"><strong>GPS provides the where, NFC provides the what.</strong></p>
-        <p class="secondary-slogan">Click & Connect: Temporary Insights, Long-Term Benefits.</p>
-        <div class="hero-buttons">
-            <a href="#esg-benefits">ESG Benefits</a>
-            <a href="#difference">Discover The Difference</a>
-            <a href="#usecases">Explore Use Cases</a>
-            <a href="#demo">Request Demo</a>
-        </div>
-    </div>
-    <div class="hero-graphic">
-        <svg viewBox="0 0 450 300" xmlns="http://www.w3.org/2000/svg">
-            <!-- Background -->
-            <rect width="450" height="300" fill="#f5f6fa" rx="8"/>
-            <!-- GPS Satellite -->
-            <g transform="translate(50, 50)">
-                <circle cx="0" cy="0" r="25" fill="#0a0f2c" opacity="0.1"/>
-                <circle cx="0" cy="0" r="15" fill="#0a0f2c"/>
-                <rect x="-8" y="-2" width="16" height="4" fill="#28a745"/>
-                <rect x="-2" y="-8" width="4" height="16" fill="#28a745"/>
-            </g>
-            <!-- NFC Tag -->
-            <g transform="translate(350, 200)">
-                <rect x="-30" y="-20" width="60" height="40" fill="#0a0f2c" rx="4"/>
-                <rect x="-25" y="-15" width="50" height="30" fill="#28a745" opacity="0.3"/>
-                <circle cx="0" cy="0" r="8" fill="#28a745"/>
-            </g>
-            <!-- Connection Lines -->
-            <path d="M 75 75 Q 225 150 350 200" stroke="#28a745" stroke-width="3" fill="none" stroke-dasharray="5,5" opacity="0.6"/>
-            <!-- Device Icon -->
-            <g transform="translate(225, 150)">
-                <rect x="-40" y="-30" width="80" height="60" fill="#0a0f2c" rx="8"/>
-                <circle cx="0" cy="0" r="12" fill="#28a745"/>
-                <rect x="-15" y="-5" width="30" height="10" fill="#28a745" opacity="0.5"/>
-            </g>
-            <!-- Signal Waves -->
-            <g transform="translate(225, 150)">
-                <circle cx="0" cy="0" r="50" fill="none" stroke="#28a745" stroke-width="2" opacity="0.3"/>
-                <circle cx="0" cy="0" r="70" fill="none" stroke="#28a745" stroke-width="2" opacity="0.2"/>
-            </g>
-        </svg>
-    </div>
-</section>
+                        <div class="form-group">
+                            <label for="quantity">Quantity (per PO cycle) *</label>
+                            <input type="number" id="quantity" name="quantity" required min="1" placeholder="1000">
+                        </div>
 
-<!-- ============================
-COST MESSAGE
-=============================== -->
-<section class="section highlight-section">
-    <h2>GPS tracking too expensive? Think again.</h2>
-    <p class="cost-message-intro">Hytraq's model lowers the cost barrier for adopting sustainable tracking solutions, making it an effort to safeguard <strong>future business prospects</strong> while advancing environmental goals.</p>
-    <div class="grid-2">
-        <div>
-            <p>Hytraq delivers temporary, rechargeable GPS tracking that attaches in seconds and pairs with existing NFC labels automatically.</p>
-            <ul class="feature-list">
-                <li>Track for months</li>
-                <li>Recharge and redeploy</li>
-                <li>Indoor NFC + outdoor GPS</li>
-                <li>Zero infrastructure</li>
-                <li>High cost efficiency</li>
-                <li>Engineered for Sustainability: Fully rechargeable and highly cost-efficient, reducing e-waste and maximizing asset life</li>
-            </ul>
-        </div>
-        <div class="section-graphic">
-            <svg viewBox="0 0 450 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Background -->
-                <rect width="450" height="300" fill="#f8f9fa" rx="8"/>
-                <!-- Map Grid -->
-                <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e0e0e0" stroke-width="1"/>
-                    </pattern>
-                </defs>
-                <rect width="450" height="300" fill="url(#grid)"/>
-                <!-- Route Path -->
-                <path d="M 50 250 Q 150 150 250 100 T 400 80" stroke="#28a745" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <!-- Location Points -->
-                <g transform="translate(50, 250)">
-                    <circle cx="0" cy="0" r="12" fill="#28a745"/>
-                    <circle cx="0" cy="0" r="8" fill="#fff"/>
-                </g>
-                <g transform="translate(250, 100)">
-                    <circle cx="0" cy="0" r="12" fill="#0a0f2c"/>
-                    <circle cx="0" cy="0" r="8" fill="#fff"/>
-                </g>
-                <g transform="translate(400, 80)">
-                    <circle cx="0" cy="0" r="12" fill="#28a745"/>
-                    <circle cx="0" cy="0" r="8" fill="#fff"/>
-                </g>
-                <!-- GPS Icon -->
-                <g transform="translate(400, 50)">
-                    <circle cx="0" cy="0" r="20" fill="#0a0f2c" opacity="0.1"/>
-                    <circle cx="0" cy="0" r="12" fill="#0a0f2c"/>
-                    <rect x="-6" y="-1" width="12" height="2" fill="#28a745"/>
-                    <rect x="-1" y="-6" width="2" height="12" fill="#28a745"/>
-                </g>
-            </svg>
-        </div>
-    </div>
-</section>
+                        <div class="form-group">
+                            <label for="price_current">Current Price (China) $/unit *</label>
+                            <input type="number" id="price_current" name="price_current" required step="0.01" min="0" placeholder="10.50">
+                        </div>
 
-<!-- ============================
-THE HYTRAQ DIFFERENCE
-=============================== -->
-<section id="difference" class="section">
-    <h2>The Hytraq Difference</h2>
-    <p class="section-intro">Only Hybrid offers the complete solution: Indoor Identification, Outdoor Tracking, and Automatic Pairing with High Cost Efficiency.</p>
-    <div class="table-section">
-        <table>
-            <thead>
-                <tr>
-                    <th>Capability</th>
-                    <th>Hybrid (Hytraq)</th>
-                    <th>GPS Only</th>
-                    <th>NFC Only</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Indoor Identification</strong></td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖</td>
-                    <td class="check">✔</td>
-                </tr>
-                <tr>
-                    <td><strong>Outdoor Tracking</strong></td>
-                    <td class="check">✔</td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖</td>
-                </tr>
-                <tr>
-                    <td><strong>Automatic Pairing</strong></td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖</td>
-                    <td class="cross">✖</td>
-                </tr>
-                <tr>
-                    <td><strong>Cost Efficiency</strong></td>
-                    <td class="highlight-cell">High</td>
-                    <td>Low</td>
-                    <td>Very High</td>
-                </tr>
-                <tr>
-                    <td><strong>Temporary Deployment</strong></td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖</td>
-                    <td class="check">✔</td>
-                </tr>
-                <tr>
-                    <td><strong>Rechargeable & Reusable</strong></td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖</td>
-                    <td class="check">✔</td>
-                </tr>
-                <tr>
-                    <td><strong>Sustainable & Reusable</strong></td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖ (Typically disposable)</td>
-                    <td class="check">✔ (Passive/Long life)</td>
-                </tr>
-                <tr>
-                    <td><strong>Energy Optimization</strong></td>
-                    <td class="check">✔</td>
-                    <td class="cross">✖ (High consumption)</td>
-                    <td class="check">✔</td>
-                </tr>
-            </tbody>
-        </table>
-        <p class="table-note"><strong>Sustainability Commitment:</strong> The device is fully rechargeable and promotes a sustainable deployment cycle. Features like Long-Term Storage Wake-Up use low-power triggers to prevent continuous power drain.</p>
-    </div>
-</section>
+                        <div class="form-group">
+                            <label for="price_proposed">Proposed Price (Vietnam) $/unit *</label>
+                            <input type="number" id="price_proposed" name="price_proposed" required step="0.01" min="0" placeholder="9.75">
+                        </div>
 
-<!-- ============================
-HOW HYBRID WORKS (EXPANDED)
-=============================== -->
-<section class="section">
-    <h2>How Hybrid Works</h2>
-    <p class="section-intro">A complete workflow from setup to redeployment, with built-in security and sustainability.</p>
-    <div class="grid-4 workflow-grid">
-        <div class="card workflow-step">
-            <div class="step-number">1</div>
-            <div class="workflow-graphic">
-                <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="120" height="80" fill="#f8f9fa" rx="4"/>
-                    <rect x="30" y="20" width="60" height="40" fill="#0a0f2c" rx="4"/>
-                    <rect x="35" y="25" width="50" height="30" fill="#28a745" opacity="0.3" rx="2"/>
-                    <circle cx="60" cy="40" r="6" fill="#28a745"/>
-                </svg>
-            </div>
-            <h3>Apply NFC label</h3>
-            <p>Quick and easy setup. The NFC label serves as the permanent identifier on your asset.</p>
-        </div>
-        <div class="card workflow-step">
-            <div class="step-number">2</div>
-            <div class="workflow-graphic">
-                <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="120" height="80" fill="#f8f9fa" rx="4"/>
-                    <rect x="20" y="25" width="50" height="30" fill="#0a0f2c" rx="4"/>
-                    <rect x="50" y="30" width="50" height="30" fill="#0a0f2c" rx="4"/>
-                    <path d="M 45 45 L 50 45" stroke="#28a745" stroke-width="3" stroke-linecap="round"/>
-                    <circle cx="60" cy="45" r="4" fill="#28a745"/>
-                </svg>
-            </div>
-            <h3>Place Hytraq → Auto Pairing</h3>
-            <p>Automatic connection through seamless NFC integration. No manual configuration required.</p>
-        </div>
-        <div class="card workflow-step">
-            <div class="step-number">3</div>
-            <div class="workflow-graphic">
-                <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="120" height="80" fill="#f8f9fa" rx="4"/>
-                    <circle cx="60" cy="40" r="20" fill="#0a0f2c" opacity="0.1"/>
-                    <circle cx="60" cy="40" r="12" fill="#0a0f2c"/>
-                    <rect x="56" y="36" width="8" height="8" fill="#28a745"/>
-                    <path d="M 60 28 L 60 52 M 28 40 L 92 40" stroke="#28a745" stroke-width="2" opacity="0.5"/>
-                </svg>
-            </div>
-            <h3>Real-time Tracking</h3>
-            <p>GPS outdoors for location data. NFC provides <strong>Instant Asset Context: Transform the paper chase into 'Tag. Tap. Done.'</strong> Access asset history, maintenance records, manuals, and work orders instantly for maintenance teams. Continuous monitoring with sensor triggers.</p>
-        </div>
-        <div class="card workflow-step">
-            <div class="step-number">4</div>
-            <div class="workflow-graphic">
-                <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="120" height="80" fill="#f8f9fa" rx="4"/>
-                    <circle cx="60" cy="40" r="25" fill="#28a745" opacity="0.1"/>
-                    <circle cx="60" cy="40" r="18" fill="#28a745" opacity="0.2"/>
-                    <path d="M 60 22 L 75 40 L 60 35 L 45 40 Z" fill="#28a745"/>
-                    <circle cx="60" cy="40" r="6" fill="#0a0f2c"/>
-                </svg>
-            </div>
-            <h3>Unpair, Recharge, Reuse → Sustainable Deployment Cycle & Enhanced Resource Recovery</h3>
-            <p>Once removed, immediate unpairing message is sent. Recharge via integrated wireless charging mechanism and ready for the next job. The reusable nature supports a <strong>sustainable deployment cycle</strong> and contributes to the goal of <strong>Enhanced Resource Recovery</strong> by maximizing resource utility.</p>
-            <p class="security-note"><strong>Enhanced Security:</strong> For further security, authenticated attachment and removal is possible, by having workers scan a personal NFC card or mobile app.</p>
-        </div>
-    </div>
-    <div class="workflow-note">
-        <p><strong>Recharge and repeat:</strong> The tracker is designed for sustainable, temporary deployment cycles, maximizing value and minimizing waste.</p>
-    </div>
-</section>
+                        <div class="form-group">
+                            <label for="moq_current">MOQ - Current (China) *</label>
+                            <input type="number" id="moq_current" name="moq_current" required min="1" placeholder="500">
+                        </div>
 
-<!-- ============================
-ACCOUNTABILITY & DATA INSIGHTS
-=============================== -->
-<section class="section insights-section">
-    <h2>Accountability & Data Insights</h2>
-    <p class="section-intro">Better visibility enables better decisions, compliance, and operational optimization.</p>
-    <div class="grid-3">
-        <div class="card">
-            <h3>Enforcing Accountability</h3>
-            <p>Identify transport parties responsible for shocks, drops, or mishandling. Precise sensor data (rotation, steps, sound) provides clear evidence of events and responsible parties.</p>
-        </div>
-        <div class="card">
-            <h3>Insurance Differentiation</h3>
-            <p>Comprehensive data collection enables insurance differentiation based on actual risk profiles. Better data leads to better rates for responsible operators.</p>
-        </div>
-        <div class="card">
-            <h3>Operational Optimization</h3>
-            <p>Correct errors and strengthen successful methods. Long-term data collection supports logistical analysis, traceability, transparency, and adaptive routing strategies.</p>
-        </div>
-    </div>
-</section>
+                        <div class="form-group">
+                            <label for="moq_proposed">MOQ - Proposed (Vietnam) *</label>
+                            <input type="number" id="moq_proposed" name="moq_proposed" required min="1" placeholder="300">
+                        </div>
 
-<!-- ============================
-ESG BENEFITS - DATA-DRIVEN ESG
-=============================== -->
-<section id="esg-benefits" class="section esg-section">
-    <h2>ESG Benefits: Data-Driven Competitive Advantage</h2>
-    <p class="section-intro">Hytraq's long-term data collection directly supports your Environmental, Social, and Governance (ESG) reporting and risk management, positioning data as a catalyst for decarbonization and sustainable operations.</p>
-    
-    <div class="esg-container-centered">
-        <div class="esg-nav-center">
-            <div class="esg-nav-item active" data-target="planet-profit">
-                <span class="pillar-icon">🌍</span>
-                <span class="nav-text">Planet & Profit</span>
-            </div>
-            <div class="esg-nav-item" data-target="governance">
-                <span class="pillar-icon">📊</span>
-                <span class="nav-text">Governance</span>
-            </div>
-            <div class="esg-nav-item" data-target="risk-value">
-                <span class="pillar-icon">💰</span>
-                <span class="nav-text">Risk & Value</span>
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="lead_time_current">Lead Time - Current (Days) *</label>
+                            <input type="number" id="lead_time_current" name="lead_time_current" required min="1" placeholder="45">
+                        </div>
 
-            <!-- Planet & Profit -->
-            <div id="planet-profit" class="esg-pillar-expandable active">
-                <div class="pillar-header">
-                    <div class="pillar-graphic">
-                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="40" cy="40" r="35" fill="#28a745" opacity="0.1"/>
-                            <circle cx="40" cy="40" r="25" fill="#28a745" opacity="0.2"/>
-                            <path d="M 40 15 Q 25 25 25 40 Q 25 55 40 65 Q 55 55 55 40 Q 55 25 40 15" fill="#28a745"/>
-                            <circle cx="40" cy="40" r="8" fill="#fff"/>
-                        </svg>
-                    </div>
-                    <h3>Planet & Profit (Efficiency)</h3>
-                </div>
-            <div class="pillar-content">
-                <h4>What We Provide: Operational Optimization & Route Decarbonization</h4>
-                <p>Use data to <strong>optimize transportation routes</strong>, leading to <strong>reduced waste, lower energy consumption, and reduced emissions</strong>, thereby <strong>minimizing environmental impacts</strong> and <strong>reducing the carbon footprint</strong>.</p>
-                <h4>Client Outcome: How It Supports Your ESG/Green Strategy</h4>
-                <ul class="esg-benefits-list">
-                    <li>Demonstrable reduction in carbon emissions through route optimization</li>
-                    <li>Lower fuel consumption and energy costs</li>
-                    <li>Reduced environmental impact metrics for ESG reporting</li>
-                    <li>Support for decarbonization goals and sustainability targets</li>
-                </ul>
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="lead_time_proposed">Lead Time - Proposed (Days) *</label>
+                            <input type="number" id="lead_time_proposed" name="lead_time_proposed" required min="1" placeholder="50">
+                        </div>
 
-            <!-- Governance -->
-            <div id="governance" class="esg-pillar-expandable">
-                <div class="pillar-header">
-                    <div class="pillar-graphic">
-                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="20" width="40" height="40" fill="#0a0f2c" opacity="0.1" rx="4"/>
-                            <rect x="15" y="15" width="50" height="50" fill="#0a0f2c" opacity="0.2" rx="4"/>
-                            <rect x="25" y="25" width="30" height="30" fill="#0a0f2c" rx="4"/>
-                            <line x1="30" y1="35" x2="50" y2="35" stroke="#28a745" stroke-width="2"/>
-                            <line x1="30" y1="40" x2="50" y2="40" stroke="#28a745" stroke-width="2"/>
-                            <line x1="30" y1="45" x2="45" y2="45" stroke="#28a745" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Profit (Governance)</h3>
-                </div>
-            <div class="pillar-content">
-                <h4>What We Provide: Enhanced Compliance and Accountability</h4>
-                <p>Provide <strong>Enhanced Traceability and Transparency</strong> to stakeholders. The system enables clients to <strong>Enforce Accountability</strong> by identifying transport parties responsible for handling failures (like mechanical shocks or temperature violations), preventing <strong>"greenwashing"</strong> and building market trust.</p>
-                <h4>Client Outcome: How It Supports Your ESG/Green Strategy</h4>
-                <ul class="esg-benefits-list">
-                    <li>Enhanced traceability and transparency for stakeholder reporting</li>
-                    <li>Prevention of greenwashing through verifiable data</li>
-                    <li>Improved governance metrics and compliance documentation</li>
-                    <li>Building market trust through accountable operations</li>
-                </ul>
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="reorder_quantity">Expected Re-ordering Quantity *</label>
+                            <input type="number" id="reorder_quantity" name="reorder_quantity" required step="0.01" min="0" placeholder="1000">
+                        </div>
 
-            <!-- Risk & Value -->
-            <div id="risk-value" class="esg-pillar-expandable">
-                <div class="pillar-header">
-                    <div class="pillar-graphic">
-                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="40" cy="40" r="30" fill="#0a0f2c" opacity="0.1"/>
-                            <path d="M 40 15 L 50 35 L 35 35 L 40 15" fill="#28a745"/>
-                            <path d="M 40 15 L 30 35 L 45 35 L 40 15" fill="#28a745" opacity="0.7"/>
-                            <rect x="25" y="35" width="30" height="20" fill="#0a0f2c" rx="2"/>
-                            <line x1="30" y1="42" x2="50" y2="42" stroke="#28a745" stroke-width="2"/>
-                            <line x1="30" y1="48" x2="50" y2="48" stroke="#28a745" stroke-width="2"/>
-                        </svg>
+                        <div class="form-group">
+                            <label for="sis">Strategic Importance Score (1-10) *</label>
+                            <input type="number" id="sis" name="sis" required min="1" max="10" placeholder="7">
+                        </div>
                     </div>
-                    <h3>Profit (Risk/Future Value)</h3>
-                </div>
-            <div class="pillar-content">
-                <h4>What We Provide: Insurance Differentiation</h4>
-                <p>Offer data that tracks the precise <strong>point of failure</strong> to provide new perspectives for <strong>insurance differentiation</strong>, potentially leading to better risk management and supporting long-term firm value (Tobin's Q).</p>
-                <h4>Client Outcome: How It Supports Your ESG/Green Strategy</h4>
-                <ul class="esg-benefits-list">
-                    <li>Better risk profiles leading to improved insurance rates</li>
-                    <li>Data-driven risk management supporting long-term firm value</li>
-                    <li>Enhanced competitive positioning through lower operational risk</li>
-                    <li>Support for Tobin's Q improvement through better governance</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ============================
-USE CASES - SIDEBAR NAVIGATION
-=============================== -->
-<section id="usecases" class="section use-cases-section">
-    <div class="use-cases-container">
-        <div class="use-cases-sidebar">
-            <h2 class="sidebar-title">Use Cases</h2>
-            <div class="nav-item active" data-target="safety">Safety & Personnel</div>
-            <div class="nav-item" data-target="sme">SME Digital Inclusion</div>
-            <div class="nav-item" data-target="emergency">Emergency Response</div>
-            <div class="nav-item" data-target="energy">Energy Optimization</div>
-            <div class="nav-item" data-target="logistics">Auditable Logistics</div>
-            <div class="nav-item" data-target="checkpoints">Fixed Checkpoints</div>
-            <div class="nav-item" data-target="compliance">High-Compliance</div>
-        </div>
+                    <button type="submit" class="btn-primary">Analyze Decision</button>
+                </form>
+            </section>
 
-        <div class="use-cases-content">
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="recommendation-box" id="recommendationBox">
+                    <h2 id="recommendationTitle"></h2>
+                    <div class="savings-display" id="savingsDisplay"></div>
+                </div>
 
-            <!-- Safety & Personnel -->
-            <div id="safety" class="use-case-section active">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <circle cx="100" cy="60" r="30" fill="#0a0f2c" opacity="0.1"/>
-                            <circle cx="100" cy="60" r="20" fill="#0a0f2c" opacity="0.2"/>
-                            <circle cx="100" cy="60" r="12" fill="#0a0f2c"/>
-                            <path d="M 100 48 L 100 60 L 92 68" stroke="#28a745" stroke-width="3" fill="none" stroke-linecap="round"/>
-                            <path d="M 100 48 L 100 60 L 108 68" stroke="#28a745" stroke-width="3" fill="none" stroke-linecap="round"/>
-                            <circle cx="100" cy="45" r="8" fill="#28a745"/>
-                            <path d="M 85 75 Q 100 85 115 75" stroke="#28a745" stroke-width="2" fill="none"/>
-                        </svg>
+                <div class="results-grid">
+                    <!-- Financial Analysis -->
+                    <div class="result-card">
+                        <h3>Cash Flow Analysis</h3>
+                        <div class="metric">
+                            <span class="metric-label">NPV Delta:</span>
+                            <span class="metric-value" id="npvDelta"></span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Current Total Cost:</span>
+                            <span class="metric-value" id="currentCost"></span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Proposed Total Cost:</span>
+                            <span class="metric-value" id="proposedCost"></span>
+                        </div>
+                        <div class="cost-breakdown" id="costBreakdown"></div>
                     </div>
-                    <h3>Safety & Personnel Monitoring</h3>
-                    <p class="category-description">Protecting individuals and monitoring distress signals in high-risk environments. Addressing the need to pursue social goals and humanitarian value through tracking solutions that protect people and communities.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Functionality:</strong> Monitor <strong>Remote Solo Worker Safety</strong> using <strong>90° rotation detection</strong> for <strong>"man-down" alerts</strong> and <strong>sound detection</strong> for distress signals.</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>Industrial Safety and "Man-Down" Monitoring</h4>
-                        <p>Automatic alerts when workers are in distress, enabling rapid response in industrial settings. 90° rotation detection triggers immediate man-down alerts.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Remote Solo Worker Safety</h4>
-                        <p>Monitor isolated workers with automatic distress signal detection and GPS tracking. Sound detection and rotation sensors provide comprehensive safety monitoring.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Temporary Roadworks Verification</h4>
-                        <p>Ensure worker safety and verify presence at temporary work sites with real-time monitoring.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- SME Digital Inclusion -->
-            <div id="sme" class="use-case-section">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <rect x="40" y="30" width="120" height="60" fill="#0a0f2c" opacity="0.1" rx="4"/>
-                            <rect x="50" y="40" width="100" height="40" fill="#0a0f2c" rx="4"/>
-                            <rect x="60" y="50" width="80" height="20" fill="#28a745" opacity="0.5" rx="2"/>
-                            <circle cx="70" cy="60" r="3" fill="#fff"/>
-                            <circle cx="85" cy="60" r="3" fill="#fff"/>
-                            <circle cx="100" cy="60" r="3" fill="#fff"/>
-                            <path d="M 80 75 L 100 75 M 90 70 L 90 80" stroke="#28a745" stroke-width="2"/>
-                        </svg>
+                    <!-- Risk Analysis -->
+                    <div class="result-card">
+                        <h3>Geopolitical Risk Scores</h3>
+                        <div class="risk-comparison">
+                            <div class="risk-item">
+                                <h4>China (Current)</h4>
+                                <div class="risk-score" id="currentRiskScore"></div>
+                                <div class="risk-breakdown" id="currentRiskBreakdown"></div>
+                            </div>
+                            <div class="risk-item">
+                                <h4>Vietnam (Proposed)</h4>
+                                <div class="risk-score" id="proposedRiskScore"></div>
+                                <div class="risk-breakdown" id="proposedRiskBreakdown"></div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>SME Digital Inclusion</h3>
-                    <p class="category-description">Affordable digital transformation for resource-constrained SMEs, promoting community-level economic well-being.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Application:</strong> <strong>SME Process Mapping</strong> as an <strong>affordable and user-friendly solution</strong> that helps resource-constrained SMEs invest in <strong>Digital Transformation initiatives</strong> and gain insight into factory operations, promoting community-level economic well-being (aligned with TBL for low-income clients).</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>Affordable Industry 4.0 Starter Toolkit</h4>
-                        <p>Enable SMEs to begin digital transformation without external expertise, gaining operational insights and process optimization capabilities.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Factory Operations Insight</h4>
-                        <p>Help resource-constrained SMEs understand and optimize their factory operations through automated process mapping and analysis.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Community Economic Development</h4>
-                        <p>Support local economic well-being by making advanced tracking and process optimization accessible to smaller businesses.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Emergency Response -->
-            <div id="emergency" class="use-case-section">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <path d="M 100 20 L 120 50 L 100 60 L 80 50 Z" fill="#28a745"/>
-                            <rect x="95" y="60" width="10" height="40" fill="#0a0f2c"/>
-                            <circle cx="100" cy="30" r="8" fill="#fff"/>
-                            <path d="M 60 80 L 140 80" stroke="#28a745" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="70" cy="80" r="5" fill="#28a745"/>
-                            <circle cx="100" cy="80" r="5" fill="#28a745"/>
-                            <circle cx="130" cy="80" r="5" fill="#28a745"/>
-                        </svg>
+                    <!-- Supplier Metrics -->
+                    <div class="result-card">
+                        <h3>Supplier Metrics</h3>
+                        <div id="supplierMetrics"></div>
                     </div>
-                    <h3>Emergency Response and Coordination</h3>
-                    <p class="category-description">Crisis management and post-scenario analysis with rapid data collection.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Application:</strong> Rapid Triage and Data Collection using NFC-reader functionality for quick assignment of care levels, sending data via LoRa and BLE. <strong>Hospital Notification</strong> via NFC-scans upon patient arrival.</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>Disaster Site Operations and Coordination</h4>
-                        <p>Coordinate emergency response with real-time tracking and rapid triage assignment.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Hospital Arrival Confirmation</h4>
-                        <p>NFC scan by medical personnel confirms arrival and enables seamless data transfer for patient care. Hospital notification via NFC-scans ensures accurate patient tracking and care level assignment.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Post-Event Analysis</h4>
-                        <p>Comprehensive data collection enables detailed post-scenario analysis and process improvement.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Energy Optimization -->
-            <div id="energy" class="use-case-section">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <circle cx="100" cy="60" r="35" fill="#28a745" opacity="0.1"/>
-                            <circle cx="100" cy="60" r="25" fill="#28a745" opacity="0.2"/>
-                            <path d="M 100 35 L 115 55 L 100 50 L 85 55 Z" fill="#28a745"/>
-                            <circle cx="100" cy="60" r="8" fill="#0a0f2c"/>
-                            <path d="M 100 68 L 100 85" stroke="#0a0f2c" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="100" cy="90" r="5" fill="#28a745"/>
-                        </svg>
+                    <!-- Contingency Recommendations -->
+                    <div class="result-card">
+                        <h3>Contingency Planning</h3>
+                        <div id="contingencyRecommendations"></div>
                     </div>
-                    <h3>Energy and Efficiency Optimization</h3>
-                    <p class="category-description">Overcoming power challenges with intelligent activation strategies.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Functionality:</strong> Use of low-power triggers (step detection) to only activate the power-intensive GPS when movement occurs.</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>Long-Term Storage Wake-Up (Theft Alert)</h4>
-                        <p>Monitor stored assets with minimal power consumption, activating GPS only when movement is detected.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Temporary Equipment Checkout with Power-Optimized Verification</h4>
-                        <p>Track equipment checkout and return with energy-efficient monitoring strategies.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Battery Life Optimization</h4>
-                        <p>Extend deployment duration through intelligent power management and selective GPS activation.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Auditable Logistics -->
-            <div id="logistics" class="use-case-section">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <rect x="30" y="40" width="140" height="40" fill="#0a0f2c" opacity="0.1" rx="4"/>
-                            <rect x="40" y="50" width="120" height="20" fill="#0a0f2c" rx="4"/>
-                            <path d="M 50 60 L 70 60 M 80 60 L 100 60 M 110 60 L 130 60 M 140 60 L 150 60" stroke="#28a745" stroke-width="2"/>
-                            <circle cx="60" cy="60" r="3" fill="#28a745"/>
-                            <circle cx="90" cy="60" r="3" fill="#28a745"/>
-                            <circle cx="120" cy="60" r="3" fill="#28a745"/>
-                            <circle cx="145" cy="60" r="3" fill="#28a745"/>
-                            <path d="M 50 80 Q 100 90 150 80" stroke="#28a745" stroke-width="2" fill="none" stroke-dasharray="3,3"/>
-                        </svg>
+                    <!-- Legal Questions -->
+                    <div class="result-card">
+                        <h3>Questions for Legal/Engineering/Security Teams</h3>
+                        <div id="legalQuestions"></div>
                     </div>
-                    <h3>Auditable Logistics and Supply Chain</h3>
-                    <p class="category-description">Tracking high-value goods integrity with comprehensive audit trails.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Functionality:</strong> LoRa long-range communication (up to 15 km), GPS, and sensor triggers (steps taken, rotation).</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>High-Value Art and Exhibit Transport Audit</h4>
-                        <p>Complete audit trail for valuable artworks with environmental monitoring and tamper detection.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Condition-Sensitive Cargo Monitoring</h4>
-                        <p>Track temperature, humidity, and handling conditions for sensitive shipments.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Fragile Cargo Drop Audit</h4>
-                        <p>Detect and log drops, shocks, and improper handling with precise sensor data.</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Fixed Checkpoints -->
-            <div id="checkpoints" class="use-case-section">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <rect x="60" y="40" width="80" height="40" fill="#0a0f2c" opacity="0.1" rx="4"/>
-                            <rect x="70" y="50" width="60" height="20" fill="#0a0f2c" rx="4"/>
-                            <rect x="75" y="55" width="50" height="10" fill="#28a745" opacity="0.5" rx="2"/>
-                            <circle cx="100" cy="60" r="6" fill="#28a745"/>
-                            <path d="M 100 70 L 100 85" stroke="#0a0f2c" stroke-width="2"/>
-                            <rect x="95" y="85" width="10" height="15" fill="#0a0f2c" rx="2"/>
-                            <circle cx="100" cy="95" r="3" fill="#28a745"/>
-                        </svg>
-                    </div>
-                    <h3>Fixed Status Verification (NFC Docking)</h3>
-                    <p class="category-description">Auditable checkpoints for custody and assembly verification. Ensures <strong>verifiable confirmation of action or location</strong> by triggering a data package transfer when the device is attached.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Functionality:</strong> Requires NFC reading (communication range up to ten centimeters) to trigger data transfer. This compliance verification capability provides tamper-proof confirmation of asset status and location.</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>High-Security, Auditable Asset Custody Chain</h4>
-                        <p>Verify custody changes with NFC scanning, creating tamper-proof audit trails. Ensures verifiable confirmation of custody transfers.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Security Seal Verification</h4>
-                        <p>Confirm seal integrity and custody through NFC-based verification checkpoints. Provides instant verification of action completion.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Train Car Assembly Verification</h4>
-                        <p>Verify assembly completion and component presence through NFC docking stations. Triggers data package transfer upon attachment confirmation.</p>
+                    <!-- Email Generator -->
+                    <div class="result-card">
+                        <h3>Email Generator Prompt</h3>
+                        <div id="emailGenerator"></div>
                     </div>
                 </div>
-            </div>
-
-            <!-- High-Compliance -->
-            <div id="compliance" class="use-case-section">
-                <div class="category-header">
-                    <div class="use-case-graphic">
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="200" height="120" fill="#f8f9fa" rx="8"/>
-                            <rect x="70" y="30" width="60" height="60" fill="#0a0f2c" opacity="0.1" rx="4"/>
-                            <rect x="75" y="35" width="50" height="50" fill="#0a0f2c" rx="4"/>
-                            <path d="M 85 50 L 115 50 M 85 60 L 115 60 M 85 70 L 110 70" stroke="#28a745" stroke-width="2"/>
-                            <circle cx="90" cy="50" r="3" fill="#28a745"/>
-                            <circle cx="90" cy="60" r="3" fill="#28a745"/>
-                            <circle cx="90" cy="70" r="3" fill="#28a745"/>
-                            <path d="M 100 50 Q 100 60 100 70" stroke="#28a745" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
-                    <h3>High-Compliance and Reverse Logistics</h3>
-                    <p class="category-description">Hazardous materials tracking and decommissioning route verification.</p>
-                </div>
-                <div class="category-features">
-                    <p><strong>Key Functionality:</strong> Combination of sensor triggers (shock/rotation/sound) to report tampering with verified custody change provided by NFC scanning.</p>
-                </div>
-                <div class="grid-3">
-                    <div class="card">
-                        <h4>Transport Shock Logging for Used Batteries</h4>
-                        <p>Monitor and log all handling events for hazardous materials with complete audit trails.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Decommissioning Route Audit</h4>
-                        <p>Verify compliance with mandatory routes and handling procedures for decommissioned materials.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Regulatory Compliance Tracking</h4>
-                        <p>Ensure adherence to transportation regulations with comprehensive sensor and location data.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================
-SOLUTIONS - PRODUCT LINE DELINEATION
-=============================== -->
-<section id="solutions" class="section">
-    <h2>Solutions</h2>
-    <p class="section-intro">Two distinct product lines designed for different operational needs: mobile asset tracking and fixed process optimization.</p>
-    
-    <!-- SECTION A: HYBRID TRACKING (TEMPORARY MOBILITY) -->
-    <div class="product-line-section">
-        <div class="product-line-header">
-            <h3>Section A: Hybrid Tracking (Temporary Mobility)</h3>
-            <p class="product-line-description">Mobile, temporary asset tracking solutions for logistics, supply chain, and outdoor operations.</p>
-        </div>
-        
-        <div class="grid-3">
-            <div class="card">
-                <h4>Hybrid Tracer Kit</h4>
-                <p>Everything you need to test hybrid tracking quickly. Includes Hytraq devices, NFC labels, and setup guides. Perfect for temporary, mobile asset tracking and logistics applications.</p>
-            </div>
-            <div class="card">
-                <h4>C8Y Kit</h4>
-                <p>Ready-made integration with Cumulocity IoT platform. Seamless connectivity for enterprise IoT deployments in mobile tracking scenarios.</p>
-            </div>
-            <div class="card">
-                <h4>SAP Kit</h4>
-                <p>Connect hybrid tracking into SAP workflows. Enterprise-grade integration for supply chain management and mobile asset visibility.</p>
-            </div>
-            <div class="card">
-                <h4>OEM Kit</h4>
-                <p>Hybrid tracking for your product line. Customizable solutions for original equipment manufacturers requiring mobile tracking capabilities.</p>
-            </div>
+            </section>
         </div>
     </div>
 
-    <div class="section-divider"></div>
+    <script>
+        // Mock supplier data
+        const suppliers = {
+            china: {
+                country: "China",
+                company_type: "State Enterprise",
+                gas: 0.35,
+                cmdi: 0.85,
+                ssp: 0.75,
+                fvm: 1.45,
+                freight_cost_per_unit: 2.50,
+                tariffs_percent: 25.0,
+                tfrf: 0.31
+            },
+            vietnam: {
+                country: "Vietnam",
+                company_type: "Private",
+                gas: 0.72,
+                cmdi: 0.45,
+                ssp: 0.25,
+                fvm: 1.15,
+                freight_cost_per_unit: 2.30,
+                tariffs_percent: 0.0,
+                tfrf: 0.15
+            }
+        };
 
-    <!-- SECTION B: NFC-TRACER TOOLKIT (FIXED PROCESS MAPPING) -->
-    <div class="sme-toolkit-section">
-        <div class="product-line-header">
-            <h3>Section B: NFC-Tracer Toolkit (Fixed Process Mapping)</h3>
-            <p class="product-line-description">An <strong>affordable and user-friendly solution</strong> designed for industrial production areas and <strong>Business Process Mapping (BPM)</strong> for <strong>resource-constrained SMEs</strong>. This self-service solution requires <strong>No External Expertise Required</strong>, overcoming a major hurdle for SMEs.</p>
-        </div>
-        
-        <div class="grid-2">
-            <div>
-                <h4>Toolkit Components</h4>
-                <ul class="toolkit-list">
-                    <li><strong>NFC Tags</strong> – Applied to products or work-sheets for identification</li>
-                    <li><strong>NFC Readers</strong> – Installed in working areas to capture data</li>
-                    <li><strong>NFC Writer Device</strong> – Used to program tags with relevant information</li>
-                    <li><strong>NFC-Tracer Configurator (Software)</strong> – Central platform for configuration and analysis</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Automated Outputs & Value</h4>
-                <p class="output-intro">The <strong>NFC-Tracer Configurator (Software)</strong> serves as the central hub, delivering unique automated outputs:</p>
-                <ul class="toolkit-list">
-                    <li><strong>Automatic Flowchart Generation</strong> – Visual process maps created automatically in the Configurator GUI, eliminating manual process documentation</li>
-                    <li><strong>Calculation of Crucial Process Metrics</strong> – Automatic calculation of <strong>processing time, transit time, and cycle time</strong> for comprehensive process analysis</li>
-                    <li><strong>Identification of Bottlenecks</strong> – AI-powered analysis to identify process inefficiencies and optimization opportunities</li>
-                    <li><strong>No External Expertise Required</strong> – Self-service digital transformation that empowers SMEs to gain operational insights independently</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+        // Calculate NPV Delta
+        function calculateNPVDelta(skuParams, currentSupplier, proposedSupplier) {
+            const quantity = skuParams.quantity;
+            const r = 0.05; // Discount rate (5%)
+            const t = Math.max(skuParams.lead_time_current, skuParams.lead_time_proposed) / 365;
 
-<!-- ============================
-ADVANCED CAPABILITIES
-=============================== -->
-<section id="capabilities" class="section capabilities-section">
-    <h2>Advanced Capabilities</h2>
-    <p class="section-intro">Leveraging collected IoT data for compliance, automation, operational intelligence, and strategic agility.</p>
-    
-    <div class="grid-3">
-        <div class="card capability-card">
-            <div class="capability-graphic">
-                <svg viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="150" height="100" fill="#f8f9fa" rx="4"/>
-                    <rect x="30" y="20" width="90" height="60" fill="#0a0f2c" opacity="0.1" rx="4"/>
-                    <rect x="35" y="25" width="80" height="50" fill="#0a0f2c" rx="4"/>
-                    <path d="M 45 40 L 65 40 M 45 50 L 70 50 M 45 60 L 60 60" stroke="#28a745" stroke-width="2"/>
-                    <circle cx="50" cy="40" r="3" fill="#28a745"/>
-                    <circle cx="50" cy="50" r="3" fill="#28a745"/>
-                    <circle cx="50" cy="60" r="3" fill="#28a745"/>
-                    <path d="M 75 40 Q 100 50 125 40" stroke="#28a745" stroke-width="2" fill="none"/>
-                </svg>
-            </div>
-            <h3>Smart Contracts</h3>
-            <p>Hytraq can implement smart contract rules during transport. IoT device monitoring properties (location, temperature, humidity) can guarantee compliance digitally, eliminating the risk of tampering.</p>
-            <p>When a predetermined event occurs, a specific warning/action is automatically generated, enabling autonomous compliance verification and automated response protocols.</p>
-        </div>
-        <div class="card capability-card">
-            <div class="capability-graphic">
-                <svg viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="150" height="100" fill="#f8f9fa" rx="4"/>
-                    <circle cx="75" cy="50" r="30" fill="#0a0f2c" opacity="0.1"/>
-                    <path d="M 45 50 L 55 40 L 65 50 L 75 40 L 85 50 L 95 40 L 105 50" stroke="#28a745" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <circle cx="55" cy="40" r="4" fill="#28a745"/>
-                    <circle cx="75" cy="40" r="4" fill="#28a745"/>
-                    <circle cx="95" cy="40" r="4" fill="#28a745"/>
-                    <path d="M 50 70 Q 75 80 100 70" stroke="#0a0f2c" stroke-width="2" fill="none"/>
-                </svg>
-            </div>
-            <h3>Long-Term Data Benefits</h3>
-            <p>Hytraq enables <strong>long-term data collection</strong> for <strong>logistical analysis</strong> and <strong>compliance</strong>. This improves <strong>traceability and transparency</strong> and supports <strong>operational optimization</strong>.</p>
-            <p>Examples include adaptive routing strategies, predictive maintenance scheduling, and data-driven decision making for supply chain improvements.</p>
-        </div>
-        <div class="card capability-card">
-            <div class="capability-graphic">
-                <svg viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="150" height="100" fill="#f8f9fa" rx="4"/>
-                    <path d="M 30 70 L 50 30 L 70 50 L 90 20 L 110 60 L 120 70" stroke="#28a745" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <circle cx="50" cy="30" r="5" fill="#28a745"/>
-                    <circle cx="90" cy="20" r="5" fill="#28a745"/>
-                    <circle cx="110" cy="60" r="5" fill="#28a745"/>
-                    <path d="M 40 80 Q 75 90 110 80" stroke="#0a0f2c" stroke-width="2" fill="none" opacity="0.5"/>
-                </svg>
-            </div>
-            <h3>Achieving Strategic Agility</h3>
-            <p>The required <strong>Information Management Infrastructure</strong> helps firms achieve <strong>Strategic Agility</strong>. Hytraq's infrastructure helps synthesize raw, real-time data into agile insights, empowering firms to recognize and react swiftly to customer-based possibilities and environmental changes.</p>
-            <p>This capability transforms operational data into strategic advantage, enabling rapid adaptation to market conditions and customer needs.</p>
-        </div>
-    </div>
-</section>
+            // Current supplier costs
+            const priceCostCurrent = skuParams.price_current * quantity;
+            const freightCostCurrent = currentSupplier.freight_cost_per_unit * quantity * currentSupplier.fvm;
+            const dutiesCurrent = priceCostCurrent * (currentSupplier.tariffs_percent / 100);
+            const totalCostCurrent = -(priceCostCurrent + freightCostCurrent + dutiesCurrent);
 
-<!-- ============================
-PRODUCT DETAIL
-=============================== -->
-<section id="product" class="section">
-    <h2>Hytraq Product Detail</h2>
-    <div class="grid-2">
-        <div class="product-graphic">
-            <svg viewBox="0 0 450 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Background -->
-                <rect width="450" height="300" fill="#f5f6fa" rx="8"/>
-                <!-- Device -->
-                <g transform="translate(225, 150)">
-                    <rect x="-60" y="-40" width="120" height="80" fill="#0a0f2c" rx="12"/>
-                    <rect x="-55" y="-35" width="110" height="70" fill="#1a1f3c" rx="8"/>
-                    <circle cx="0" cy="0" r="20" fill="#28a745" opacity="0.3"/>
-                    <circle cx="0" cy="0" r="12" fill="#28a745"/>
-                    <rect x="-8" y="-2" width="16" height="4" fill="#fff"/>
-                    <rect x="-2" y="-8" width="4" height="16" fill="#fff"/>
-                    <!-- NFC Indicator -->
-                    <rect x="-50" y="25" width="100" height="8" fill="#28a745" opacity="0.5" rx="2"/>
-                    <circle cx="-40" cy="29" r="2" fill="#fff"/>
-                    <circle cx="40" cy="29" r="2" fill="#fff"/>
-                </g>
-                <!-- Signal Indicators -->
-                <g transform="translate(100, 80)">
-                    <circle cx="0" cy="0" r="3" fill="#28a745"/>
-                    <path d="M 0 0 L 10 -5" stroke="#28a745" stroke-width="2" stroke-linecap="round"/>
-                </g>
-                <g transform="translate(350, 80)">
-                    <circle cx="0" cy="0" r="3" fill="#28a745"/>
-                    <path d="M 0 0 L -10 -5" stroke="#28a745" stroke-width="2" stroke-linecap="round"/>
-                </g>
-                <!-- Charging Indicator -->
-                <g transform="translate(225, 220)">
-                    <rect x="-30" y="-5" width="60" height="10" fill="#0a0f2c" opacity="0.2" rx="5"/>
-                    <rect x="-25" y="-3" width="50" height="6" fill="#28a745" opacity="0.6" rx="3"/>
-                </g>
-            </svg>
-        </div>
-        <div>
-            <p>Hybrid GPS + NFC tracker for temporary or flexible asset tracking. A crucial, temporary data-logging instrument that facilitates accountability, enhances compliance, and streamlines complex logistics and safety workflows.</p>
-            <ul class="feature-list">
-                <li>Automatic pairing with NFC labels</li>
-                <li>Real-time GPS tracking</li>
-                <li>Wireless charging mechanism</li>
-                <li>Optional temperature/humidity sensors</li>
-                <li>Tamper alert and event detection</li>
-                <li>90° rotation detection for safety alerts</li>
-                <li>Sound detection capabilities</li>
-                <li><strong>LoRa long-range communication (up to 15 km)</strong> – LoRa communication was chosen partly because its limited range makes the tracker more troublesome to use for illegal surveillance by unauthorized parties—a key security failure avoidance measure</li>
-                <li>Low-power step detection triggers</li>
-            </ul>
-        </div>
-    </div>
-</section>
+            // Proposed supplier costs
+            const priceCostProposed = skuParams.price_proposed * quantity;
+            const freightCostProposed = proposedSupplier.freight_cost_per_unit * quantity * proposedSupplier.fvm;
+            const dutiesProposed = priceCostProposed * (proposedSupplier.tariffs_percent / 100);
+            const totalCostProposed = -(priceCostProposed + freightCostProposed + dutiesProposed);
 
-<!-- ============================
-DEMO / CONTACT
-=============================== -->
-<section id="demo" class="section">
-    <h2>Request a Demo</h2>
-    <p>See how hybrid tracking can improve your operations, enhance accountability, and optimize your logistics.</p>
-    <form id="demo-form">
-        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
-        <input type="email" name="email" placeholder="Email" required aria-label="Email Address">
-        <textarea name="message" placeholder="Tell us about your use case" required aria-label="Message"></textarea>
-        <button type="submit">Submit</button>
-    </form>
-</section>
+            // Calculate NPV delta
+            const cashFlowDelta = totalCostProposed - totalCostCurrent;
+            const npvDelta = cashFlowDelta / Math.pow(1 + r, t);
 
-<footer>
-    <p>&copy; 2025 Hytraq — Hybrid Tracking Solutions</p>
-    <p>GPS provides the where, NFC provides the what.</p>
-</footer>
+            return {
+                npv_delta: npvDelta,
+                cost_current: Math.abs(totalCostCurrent),
+                cost_proposed: Math.abs(totalCostProposed),
+                cash_flow_delta: cashFlowDelta,
+                details: {
+                    price_cost_current: priceCostCurrent,
+                    freight_cost_current: freightCostCurrent,
+                    duties_current: dutiesCurrent,
+                    price_cost_proposed: priceCostProposed,
+                    freight_cost_proposed: freightCostProposed,
+                    duties_proposed: dutiesProposed
+                }
+            };
+        }
 
-<script src="js/main.js"></script>
+        // Calculate Risk Score
+        function calculateRiskScore(supplier) {
+            const gtsPenalty = 1.0 - supplier.gas;
+            const gsv = (supplier.cmdi * 0.6 + supplier.ssp * 0.4);
+            let glvScore = (supplier.fvm - 1.0) / 1.0;
+            glvScore = Math.min(glvScore, 1.0);
+
+            const riskScore = 0.4 * gtsPenalty + 0.3 * gsv + 0.3 * glvScore;
+
+            return {
+                total_risk_score: riskScore,
+                gts_penalty: gtsPenalty,
+                gsv: gsv,
+                glv_score: glvScore,
+                components: {
+                    gas: supplier.gas,
+                    cmdi: supplier.cmdi,
+                    ssp: supplier.ssp,
+                    fvm: supplier.fvm
+                }
+            };
+        }
+
+        // Generate contingency recommendations
+        function generateContingencyRecommendations(riskData) {
+            const recommendations = [];
+
+            if (riskData.glv_score > 0.4) {
+                recommendations.push({
+                    priority: 'High',
+                    category: 'Logistics',
+                    recommendation: `Given high Geopolitical Logistics Volatility (GLV: ${(riskData.glv_score * 100).toFixed(1)}%), review alternative freight providers and shipping routes. Consider diversifying between air and sea freight options to mitigate maritime disruption risks.`
+                });
+            }
+
+            if (riskData.gsv > 0.5) {
+                recommendations.push({
+                    priority: 'High',
+                    category: 'Supply Chain',
+                    recommendation: `High Geopolitical Supply Vulnerability (GSV: ${(riskData.gsv * 100).toFixed(1)}%) detected. Increase safety stock by 30-60 days to mitigate potential targeted sanction exposure or resource nationalism disruptions.`
+                });
+            }
+
+            if (riskData.gts_penalty > 0.5) {
+                recommendations.push({
+                    priority: 'Medium',
+                    category: 'Trade Relations',
+                    recommendation: `Elevated trade stability risk (GTS Penalty: ${(riskData.gts_penalty * 100).toFixed(1)}%). Monitor trade policy changes and maintain relationships with alternative suppliers in different regions.`
+                });
+            }
+
+            if (recommendations.length === 0) {
+                recommendations.push({
+                    priority: 'Low',
+                    category: 'General',
+                    recommendation: "Risk factors are within acceptable ranges. Continue standard monitoring protocols."
+                });
+            }
+
+            return recommendations;
+        }
+
+        // Generate legal questions
+        function generateLegalQuestions(skuParams, supplier, riskData) {
+            const questions = [];
+
+            if (supplier.ssp > 0.5) {
+                questions.push({
+                    category: 'Legal',
+                    question: `Given the high Strategic Shielding Potential (SSP: ${(supplier.ssp * 100).toFixed(0)}%) of the ${supplier.country} supplier, what is our legal exposure if the supplier is subjected to targeted sanctions, potentially leading to asset freezing or supply chain disruption?`
+                });
+            }
+
+            if (riskData.gsv > 0.5) {
+                questions.push({
+                    category: 'Engineering/Security',
+                    question: `With Critical Mineral Dependency Index (CMDI: ${(riskData.components.cmdi * 100).toFixed(0)}%) at elevated levels, what are our options for component substitution or alternative sourcing to reduce dependency on geopolitically sensitive materials?`
+                });
+            }
+
+            if (supplier.tfrf > 0.2) {
+                questions.push({
+                    category: 'Supply Chain',
+                    question: `Trade Fragmentation Risk Factor (TFRF: ${(supplier.tfrf * 100).toFixed(0)}%) indicates potential ${(supplier.tfrf * 100).toFixed(0)}% cost increase from trade restrictions. What is our contingency plan if trade flows between blocs are disrupted?`
+                });
+            }
+
+            questions.push({
+                category: 'General',
+                question: `For SKU ${skuParams.sku} with Strategic Importance Score ${skuParams.sis}/10, what is the acceptable risk threshold for supply disruption, and do we have backup inventory strategies in place?`
+            });
+
+            return questions;
+        }
+
+        // Main decision calculation
+        function calculateDecision(skuParams, currentSupplier, proposedSupplier) {
+            const npvResult = calculateNPVDelta(skuParams, currentSupplier, proposedSupplier);
+            const currentRisk = calculateRiskScore(currentSupplier);
+            const proposedRisk = calculateRiskScore(proposedSupplier);
+
+            // Calculate Expected Loss
+            const annualSkuRevenue = skuParams.price_current * skuParams.reorder_quantity * 12;
+            const probabilityDisruption = proposedRisk.total_risk_score * 0.5;
+            const impactMagnitude = 0.25;
+            const eLoss = annualSkuRevenue * probabilityDisruption * impactMagnitude;
+
+            // Calculate weighted decision
+            const riskAdjustment = proposedRisk.total_risk_score * eLoss;
+            const wDecision = npvResult.npv_delta - riskAdjustment;
+
+            const recommendation = wDecision > 0 ? "SWITCH TO VIETNAM" : "STAY WITH CHINA";
+            const chosenSupplier = wDecision > 0 ? proposedSupplier : currentSupplier;
+            const chosenRisk = wDecision > 0 ? proposedRisk : currentRisk;
+
+            const riskDelta = Math.abs(proposedRisk.total_risk_score - currentRisk.total_risk_score);
+
+            return {
+                recommendation: recommendation,
+                w_decision: wDecision,
+                npv_delta: npvResult.npv_delta,
+                cost_savings: Math.abs(npvResult.npv_delta) > 0 && npvResult.npv_delta > 0 ? Math.abs(npvResult.npv_delta) : 0,
+                current_cost: npvResult.cost_current,
+                proposed_cost: npvResult.cost_proposed,
+                risk_analysis: {
+                    current_risk: currentRisk,
+                    proposed_risk: proposedRisk,
+                    risk_delta: riskDelta
+                },
+                expected_loss: eLoss,
+                risk_adjustment: riskAdjustment,
+                supplier_metrics: {
+                    current: {
+                        gas: currentSupplier.gas,
+                        fvm: currentSupplier.fvm,
+                        tfrf: currentSupplier.tfrf,
+                        tariffs_percent: currentSupplier.tariffs_percent
+                    },
+                    proposed: {
+                        gas: proposedSupplier.gas,
+                        fvm: proposedSupplier.fvm,
+                        tfrf: proposedSupplier.tfrf,
+                        tariffs_percent: proposedSupplier.tariffs_percent
+                    }
+                },
+                cost_breakdown: npvResult.details,
+                contingency_recommendations: generateContingencyRecommendations(chosenRisk),
+                legal_questions: generateLegalQuestions(skuParams, chosenSupplier, chosenRisk),
+                email_generator_prompt: `Generate monthly email update based on changes to TFRF/FVM metrics. Current TFRF: China ${(currentSupplier.tfrf * 100).toFixed(0)}%, Vietnam ${(proposedSupplier.tfrf * 100).toFixed(0)}%. Current FVM: China ${currentSupplier.fvm.toFixed(2)}x, Vietnam ${proposedSupplier.fvm.toFixed(2)}x.`
+            };
+        }
+
+        // Format currency
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        // Get risk class
+        function getRiskClass(score) {
+            if (score < 0.33) return 'low';
+            if (score < 0.66) return 'medium';
+            return 'high';
+        }
+
+        // Display results
+        function displayResults(data) {
+            const resultsSection = document.getElementById('resultsSection');
+            const recommendationBox = document.getElementById('recommendationBox');
+            const recommendationTitle = document.getElementById('recommendationTitle');
+            const savingsDisplay = document.getElementById('savingsDisplay');
+
+            const isSwitch = data.recommendation === 'SWITCH TO VIETNAM';
+            recommendationBox.className = `recommendation-box ${isSwitch ? 'switch' : 'stay'}`;
+            recommendationTitle.textContent = `Recommended: ${data.recommendation}`;
+
+            if (data.cost_savings > 0) {
+                savingsDisplay.textContent = `${formatCurrency(data.cost_savings)} Saved per Cycle`;
+                savingsDisplay.className = 'savings-display positive';
+            } else {
+                savingsDisplay.textContent = `Additional Cost: ${formatCurrency(Math.abs(data.npv_delta))}`;
+                savingsDisplay.className = 'savings-display negative';
+            }
+
+            // Financial Analysis
+            document.getElementById('npvDelta').textContent = formatCurrency(data.npv_delta);
+            document.getElementById('npvDelta').className = `metric-value ${data.npv_delta > 0 ? 'positive' : 'negative'}`;
+            document.getElementById('currentCost').textContent = formatCurrency(data.current_cost);
+            document.getElementById('proposedCost').textContent = formatCurrency(data.proposed_cost);
+
+            // Cost Breakdown
+            const breakdown = data.cost_breakdown;
+            document.getElementById('costBreakdown').innerHTML = `
+                <h4>Current Supplier (China) Breakdown:</h4>
+                <div class="cost-item"><span>Product Cost:</span> <span>${formatCurrency(breakdown.price_cost_current)}</span></div>
+                <div class="cost-item"><span>Freight (× FVM ${data.supplier_metrics.current.fvm}):</span> <span>${formatCurrency(breakdown.freight_cost_current)}</span></div>
+                <div class="cost-item"><span>Duties (${data.supplier_metrics.current.tariffs_percent}%):</span> <span>${formatCurrency(breakdown.duties_current)}</span></div>
+                <h4 style="margin-top: 15px;">Proposed Supplier (Vietnam) Breakdown:</h4>
+                <div class="cost-item"><span>Product Cost:</span> <span>${formatCurrency(breakdown.price_cost_proposed)}</span></div>
+                <div class="cost-item"><span>Freight (× FVM ${data.supplier_metrics.proposed.fvm}):</span> <span>${formatCurrency(breakdown.freight_cost_proposed)}</span></div>
+                <div class="cost-item"><span>Duties (${data.supplier_metrics.proposed.tariffs_percent}%):</span> <span>${formatCurrency(breakdown.duties_proposed)}</span></div>
+            `;
+
+            // Risk Analysis
+            const currentRisk = data.risk_analysis.current_risk;
+            const proposedRisk = data.risk_analysis.proposed_risk;
+
+            const currentRiskScore = document.getElementById('currentRiskScore');
+            currentRiskScore.textContent = (currentRisk.total_risk_score * 100).toFixed(1) + '%';
+            currentRiskScore.className = `risk-score ${getRiskClass(currentRisk.total_risk_score)}`;
+
+            document.getElementById('currentRiskBreakdown').innerHTML = `
+                <div class="risk-component"><span>GTS Penalty:</span> <span>${(currentRisk.gts_penalty * 100).toFixed(1)}%</span></div>
+                <div class="risk-component"><span>GSV:</span> <span>${(currentRisk.gsv * 100).toFixed(1)}%</span></div>
+                <div class="risk-component"><span>GLV Score:</span> <span>${(currentRisk.glv_score * 100).toFixed(1)}%</span></div>
+            `;
+
+            const proposedRiskScore = document.getElementById('proposedRiskScore');
+            proposedRiskScore.textContent = (proposedRisk.total_risk_score * 100).toFixed(1) + '%';
+            proposedRiskScore.className = `risk-score ${getRiskClass(proposedRisk.total_risk_score)}`;
+
+            document.getElementById('proposedRiskBreakdown').innerHTML = `
+                <div class="risk-component"><span>GTS Penalty:</span> <span>${(proposedRisk.gts_penalty * 100).toFixed(1)}%</span></div>
+                <div class="risk-component"><span>GSV:</span> <span>${(proposedRisk.gsv * 100).toFixed(1)}%</span></div>
+                <div class="risk-component"><span>GLV Score:</span> <span>${(proposedRisk.glv_score * 100).toFixed(1)}%</span></div>
+            `;
+
+            // Supplier Metrics
+            document.getElementById('supplierMetrics').innerHTML = `
+                <div class="supplier-metrics-grid">
+                    <div class="supplier-metric-group">
+                        <h4>China (Current)</h4>
+                        <div class="supplier-metric"><span>GAS:</span> <span>${(data.supplier_metrics.current.gas * 100).toFixed(0)}%</span></div>
+                        <div class="supplier-metric"><span>FVM:</span> <span>×${data.supplier_metrics.current.fvm.toFixed(2)}</span></div>
+                        <div class="supplier-metric"><span>TFRF:</span> <span>${(data.supplier_metrics.current.tfrf * 100).toFixed(0)}%</span></div>
+                        <div class="supplier-metric"><span>Tariffs:</span> <span>${data.supplier_metrics.current.tariffs_percent}%</span></div>
+                    </div>
+                    <div class="supplier-metric-group">
+                        <h4>Vietnam (Proposed)</h4>
+                        <div class="supplier-metric"><span>GAS:</span> <span>${(data.supplier_metrics.proposed.gas * 100).toFixed(0)}%</span></div>
+                        <div class="supplier-metric"><span>FVM:</span> <span>×${data.supplier_metrics.proposed.fvm.toFixed(2)}</span></div>
+                        <div class="supplier-metric"><span>TFRF:</span> <span>${(data.supplier_metrics.proposed.tfrf * 100).toFixed(0)}%</span></div>
+                        <div class="supplier-metric"><span>Tariffs:</span> <span>${data.supplier_metrics.proposed.tariffs_percent}%</span></div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 5px; font-size: 0.9em;">
+                    <strong>Trade Fragmentation Risk:</strong> Expected cost increase of ${(data.supplier_metrics.current.tfrf * 100).toFixed(0)}% (China) vs ${(data.supplier_metrics.proposed.tfrf * 100).toFixed(0)}% (Vietnam) due to trade bloc restrictions.<br>
+                    <strong>Maritime Risk Adjustment:</strong> Freight multiplier of ×${data.supplier_metrics.current.fvm.toFixed(2)} (China) vs ×${data.supplier_metrics.proposed.fvm.toFixed(2)} (Vietnam) for route volatility.
+                </div>
+            `;
+
+            // Contingency Recommendations
+            const contingencyRecs = document.getElementById('contingencyRecommendations');
+            if (data.contingency_recommendations && data.contingency_recommendations.length > 0) {
+                contingencyRecs.innerHTML = data.contingency_recommendations.map(rec => `
+                    <div class="contingency-item">
+                        <h4><span class="priority ${rec.priority.toLowerCase()}">${rec.priority}</span>${rec.category}</h4>
+                        <p>${rec.recommendation}</p>
+                    </div>
+                `).join('');
+            }
+
+            // Legal Questions
+            const legalQuestions = document.getElementById('legalQuestions');
+            if (data.legal_questions && data.legal_questions.length > 0) {
+                legalQuestions.innerHTML = data.legal_questions.map(q => `
+                    <div class="question-item">
+                        <h4><span class="category">${q.category}</span></h4>
+                        <p>${q.question}</p>
+                    </div>
+                `).join('');
+            }
+
+            // Email Generator
+            const emailGenerator = document.getElementById('emailGenerator');
+            if (data.email_generator_prompt) {
+                emailGenerator.innerHTML = `
+                    <div class="contingency-item">
+                        <p><strong>Monthly Update Prompt:</strong></p>
+                        <p style="margin-top: 10px; font-style: italic; color: #666;">${data.email_generator_prompt}</p>
+                    </div>
+                `;
+            }
+
+            // Show results section
+            resultsSection.style.display = 'block';
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('analysisForm');
+            const resultsSection = document.getElementById('resultsSection');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    sku: document.getElementById('sku').value,
+                    quantity: parseFloat(document.getElementById('quantity').value),
+                    price_current: parseFloat(document.getElementById('price_current').value),
+                    price_proposed: parseFloat(document.getElementById('price_proposed').value),
+                    moq_current: parseInt(document.getElementById('moq_current').value),
+                    moq_proposed: parseInt(document.getElementById('moq_proposed').value),
+                    lead_time_current: parseInt(document.getElementById('lead_time_current').value),
+                    lead_time_proposed: parseInt(document.getElementById('lead_time_proposed').value),
+                    reorder_quantity: parseFloat(document.getElementById('reorder_quantity').value),
+                    sis: parseInt(document.getElementById('sis').value)
+                };
+
+                // Perform analysis
+                const result = calculateDecision(formData, suppliers.china, suppliers.vietnam);
+                displayResults(result);
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+

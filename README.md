@@ -1,120 +1,84 @@
-# Hytraq - Hybrid Tracking Website
+# PCB Sourcing Decision Engine MVP
 
-A modern, responsive landing page for Hytraq, a hybrid GPS + NFC tracking solution for temporary and flexible asset tracking.
+A plug-and-play decision engine for electronics importers to analyze the financial and geopolitical tradeoffs of switching PCB suppliers from China to Vietnam.
 
-## 🚀 Features
+## Features
 
-- **Responsive Design**: Fully responsive layout that works on all devices
-- **Smooth Scrolling**: Enhanced navigation with smooth scroll behavior
-- **Form Validation**: Client-side form validation with user feedback
-- **Modern UI**: Clean, professional design with hover effects and transitions
-- **Accessibility**: Semantic HTML and ARIA labels for better accessibility
+- **Financial Analysis**: Calculate NPV Delta with comprehensive cost modeling including freight, duties, and lead time adjustments
+- **Geopolitical Risk Scoring**: Quantified risk analysis using multiple factors:
+  - Geopolitical Trade Stability (GTS) Penalty
+  - Geopolitical Supply Vulnerability (GSV)
+  - Geopolitical Logistics Volatility (GLV)
+- **Decision Recommendation**: Weighted decision model combining financial incentives with risk-adjusted expected losses
+- **Contingency Planning**: Automated recommendations based on identified risk factors
+- **Legal/Engineering Questions**: Dynamic generation of critical questions for cross-functional teams
 
-## 📁 Project Structure
+## Technology Stack
 
-```
-hybrid-site/
-├── index.html          # Main HTML file
-├── css/
-│   └── styles.css      # Main stylesheet
-├── js/
-│   └── main.js         # JavaScript functionality
-├── images/             # Image assets (add your images here)
-├── README.md           # This file
-└── .gitignore          # Git ignore rules
-```
+- **Pure HTML/CSS/JavaScript**: Standalone single-file application
+- **No Server Required**: Runs entirely in the browser
+- **Mock Data**: Embedded supplier data for China and Vietnam
 
-## 🛠️ Setup
+## Setup Instructions
 
-1. Clone or download this repository
-2. Open `index.html` in a web browser
-3. For development, use a local server (recommended):
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js (http-server)
-   npx http-server
-   ```
+**Simply open `index.html` in your web browser!**
 
-## 📝 Customization
+1. **Open the file**:
+   - Double-click `index.html`, or
+   - Right-click → "Open with" → Your web browser, or
+   - Drag and drop the file into your browser window
 
-### Images
+2. **That's it!** The application is ready to use.
 
-Replace placeholder images in the `images/` directory:
-- `hero-image.jpg` - Hero section image
-- `gps-tracking.jpg` - GPS tracking section image
-- `product-detail.jpg` - Product detail section image
+No installation, no dependencies, no server setup required. Everything runs locally in your browser.
 
-The HTML includes fallback placeholder images if local images are not found.
+## Usage
 
-### Form Submission
+1. Enter SKU parameters in the input form:
+   - SKU/Component Number
+   - Quantity per PO cycle
+   - Current and proposed prices
+   - MOQ (Minimum Order Quantity) for both suppliers
+   - Lead times for both suppliers
+   - Expected re-ordering quantity
+   - Strategic Importance Score (1-10)
 
-The contact form currently uses client-side validation only. To enable actual form submission:
+2. Click "Analyze Decision" to generate the recommendation
 
-1. **Option 1: Use a form service** (e.g., Formspree, Netlify Forms)
-   - Sign up for a service
-   - Update the form action in `index.html`
-   - Configure the service endpoint
+3. Review the results:
+   - **Recommendation**: Switch to Vietnam or Stay with China
+   - **Cash Flow Delta**: Projected savings/costs per cycle
+   - **Risk Analysis**: Detailed geopolitical risk scores for both suppliers
+   - **Contingency Recommendations**: Actionable mitigation strategies
+   - **Legal Questions**: Critical questions for your cross-functional teams
 
-2. **Option 2: Backend integration**
-   - Update `js/main.js` to send form data to your API
-   - Replace the setTimeout simulation with actual fetch/axios call
+## Data Structure
 
-### Styling
+The application uses mock data stored in `data/suppliers.json` for:
+- Geopolitical Alignment Score (GAS)
+- Critical Mineral Dependency Index (CMDI)
+- Strategic Shielding Potential (SSP)
+- Foreland Volatility Multiplier (FVM)
+- Trade Fragmentation Risk Factor (TFRF)
+- Freight costs and tariff rates
 
-All styles are in `css/styles.css`. The color scheme uses:
-- Primary: `#0a0f2c` (dark blue)
-- Background: `#f5f6fa` (light gray)
-- Text: `#222` (dark gray)
+## MVP Constraints
 
-## 🌐 Browser Support
+- Focus: PCB component category only
+- Origin/Destination: China → Vietnam supplier comparison
+- Importer Country: U.S. (fixed)
+- Mock data used for geopolitical metrics (no real-time API integrations)
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## Future Enhancements
 
-## 📱 Responsive Breakpoints
+- Real-time API integrations for geopolitical data
+- Multi-component category support
+- Additional origin/destination pairs
+- Email update generator for metric changes
+- Historical trend analysis
+- Advanced scenario modeling
 
-- Desktop: 1200px+
-- Tablet: 768px - 1199px
-- Mobile: < 768px
-- Small Mobile: < 480px
+## License
 
-## 🔧 Development
-
-### Adding New Sections
-
-1. Add HTML section in `index.html`
-2. Add corresponding styles in `css/styles.css`
-3. Update navigation if needed
-
-### JavaScript Features
-
-- Smooth scrolling for anchor links
-- Form validation and submission handling
-- Active navigation highlighting on scroll
-
-## 📄 License
-
-This project is proprietary. All rights reserved.
-
-## 🤝 Contributing
-
-This is a private project. For changes or improvements, please contact the project maintainer.
-
-## 📧 Contact
-
-For demo requests or inquiries, use the contact form on the website.
-
----
-
-**Note**: This is a static website. For production deployment, consider:
-- Adding a build process (if needed)
-- Setting up proper form handling
-- Implementing analytics
-- Adding SEO meta tags
-- Setting up a CDN for assets
-
+This is a prototype/MVP for demonstration purposes.
 

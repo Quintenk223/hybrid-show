@@ -1,0 +1,27 @@
+{
+  "china": {
+    "country": "China",
+    "company_type": "State Enterprise",
+    "gas": 0.35,
+    "cmdi": 0.85,
+    "ssp": 0.75,
+    "fvm": 1.45,
+    "freight_cost_per_unit": 2.50,
+    "tariffs_percent": 25.0,
+    "tfrf": 0.31
+  },
+  "vietnam": {
+    "country": "Vietnam",
+    "company_type": "Private",
+    "gas": 0.72,
+    "cmdi": 0.45,
+    "ssp": 0.25,
+    "fvm": 1.15,
+    "freight_cost_per_unit": 2.30,
+    "tariffs_percent": 0.0,
+    "tfrf": 0.15
+  }
+}
+
+
+

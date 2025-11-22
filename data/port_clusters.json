@@ -1,0 +1,47 @@
+{
+  "YRD": {
+    "port_cluster": "Yangtze River Delta (YRD)",
+    "major_ports": ["Shanghai", "Ningbo-Zhoushan", "Suzhou"],
+    "fvm_maritime_risk": 1.15,
+    "fvm_multiplier": 1.15,
+    "port_foreland_vulnerability_score": 75.0,
+    "port_power_exposure_score": 0.95,
+    "primary_trade_routes": ["Europe", "North America", "Southeast Asia"],
+    "geopolitical_risk": "High",
+    "vulnerability_type": "Geopolitical/Capacity Deterrence",
+    "capacity_deterrence_benefit": 0.40,
+    "roundabout_trade_exposure": 0.30,
+    "notes": "China is the emerging global port power, with seven of the world's top ten ports. YRD ports represent high political centralization. FVM reflects baseline multiplier (1.15) for freight cost adjustments. Geopolitical events (e.g., Russia-Ukraine conflict) cause shrinkage in China's port foreland expansion in Europe. Strategic deterrence: geopolitical rivalry leads to capacity expansion/price reduction. High port power exposure (0.95) reflects political centralization of major hubs.",
+    "last_updated": "2024-01-01"
+  },
+  "PRD": {
+    "port_cluster": "Pearl River Delta (PRD)",
+    "major_ports": ["Shenzhen", "Guangzhou", "Hong Kong"],
+    "fvm_maritime_risk": 1.25,
+    "fvm_multiplier": 1.25,
+    "port_foreland_vulnerability_score": 70.0,
+    "port_power_exposure_score": 0.80,
+    "primary_trade_routes": ["North America", "Southeast Asia", "Europe"],
+    "geopolitical_risk": "High",
+    "vulnerability_type": "Indirect/Internal Logistics",
+    "capacity_deterrence_benefit": 0.35,
+    "roundabout_trade_exposure": 0.25,
+    "notes": "Secondary port cluster with indirect exposure. FVM multiplier (1.25) higher than YRD due to indirect/internal logistics complexity. Lower port power exposure (0.80) compared to YRD reflects secondary cluster status. Geopolitical rivalry affects capacity deterrence modeling. Russia-Ukraine conflict causes measurable shrinkage in foreland expansion.",
+    "last_updated": "2024-01-01"
+  },
+  "Inland Port": {
+    "port_cluster": "Inland Rail/Truck → Coastal Port",
+    "major_ports": ["Via PRD", "Via YRD"],
+    "fvm_maritime_risk": 1.30,
+    "fvm_multiplier": 1.30,
+    "port_foreland_vulnerability_score": 65.0,
+    "port_power_exposure_score": 0.70,
+    "primary_trade_routes": ["Domestic Transfer", "Coastal Ports"],
+    "geopolitical_risk": "Medium",
+    "vulnerability_type": "Internal Logistics",
+    "capacity_deterrence_benefit": 0.30,
+    "roundabout_trade_exposure": 0.20,
+    "notes": "Inland suppliers require rail/truck transport to coastal ports, adding logistics complexity. Higher FVM (1.30) reflects additional transport steps and internal logistics risks.",
+    "last_updated": "2024-01-01"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "Shanghai / Suzhou (YRD)": {
+    "prefecture_name": "Shanghai / Suzhou (YRD)",
+    "location_type": "Coastal",
+    "region": "Yangtze River Delta",
+    "wealth_tier": "High",
+    "gdp_per_capita_tier": "High",
+    "migration_vulnerability": 0.15,
+    "productivity_index": 1.15,
+    "efficiency_multiplier": 0.085,
+    "wealth_efficiency_multiplier": 0.085,
+    "labor_attraction": "High",
+    "infrastructure_quality": "Excellent",
+    "notes": "Coastal, rich prefecture with high wealth tier. Frictions are less dispersed and less correlated with productivity in richer locations. Efficiency multiplier (0.085) reflects lower friction dispersion. Low migration vulnerability (0.15) as developed regions attract labor rather than experience outflow. High productivity index (1.15) and excellent infrastructure quality."
+  },
+  "Inland Prefecture X": {
+    "prefecture_name": "Inland Prefecture X",
+    "location_type": "Inland",
+    "region": "Inland",
+    "wealth_tier": "Low",
+    "gdp_per_capita_tier": "Low",
+    "migration_vulnerability": 0.45,
+    "productivity_index": 0.95,
+    "efficiency_multiplier": 0.108,
+    "wealth_efficiency_multiplier": 0.108,
+    "labor_attraction": "Low",
+    "infrastructure_quality": "Moderate",
+    "notes": "Inland, poorer prefecture with low wealth tier. Higher efficiency multiplier (0.108) reflects greater friction dispersion. High migration vulnerability (0.45) as less-developed regions are vulnerable to labor outflow during policy shifts (e.g., migration liberalization). Migration liberalization worsens spatial inequality by attracting labor to richer, less-distorted prefectures. Lower productivity index (0.95) and moderate infrastructure quality."
+  },
+  "Hai Phong": {
+    "prefecture_name": "Hai Phong",
+    "location_type": "Coastal",
+    "region": "Red River Delta",
+    "wealth_tier": "Medium",
+    "gdp_per_capita_tier": "Medium",
+    "migration_vulnerability": 0.20,
+    "productivity_index": 1.05,
+    "efficiency_multiplier": 0.092,
+    "wealth_efficiency_multiplier": 0.092,
+    "labor_attraction": "Medium",
+    "infrastructure_quality": "Good",
+    "notes": "Coastal location in Vietnam with emerging manufacturing sector. Moderate migration vulnerability. Benefits from infrastructure investment driven by geopolitical rivalry and capacity deterrence effects. Moderate efficiency multiplier between China's coastal (0.085) and inland (0.108) values."
+  }
+}
